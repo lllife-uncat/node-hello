@@ -1,18 +1,19 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var app = express();
-var DbMgr = require("./db").DbMgr;
-var db = new DbMgr();
+var express = require("express"),
+    bodyParser = require("body-parser") ,
+    DbMgr = require("./db").DbMgr;
+
+var app = express(),
+    db = new DbMgr();
 
 app.use(bodyParser());
+
 app.get("/", function(req, res){
   res.sendfile("index.html");
 });
 
 app.get("/user", function(req, res){
-
-  var agex = req.query.age;
-  agex = parseInt(agex);
+  var age = req.query.age;
+  agex = parseInt(age);
 
   db.findUser({ age: agex}, function(err, docs){
     res.json(docs);
@@ -25,7 +26,6 @@ app.post("/user", function(req, res){
   db.saveUser(user, function(err, doc){
 
     if(err) {
-      console.error(err);
       res.statusCode = 400;
       res.end();
     }

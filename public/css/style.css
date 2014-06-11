@@ -1,0 +1,12 @@
+body {
+  background-color: lightgray;
+}
+
+.ko-slick {
+  height: 100px;
+}
+
+.ko-slick div {
+  height: 100px;
+  font-size: 100px;
+}

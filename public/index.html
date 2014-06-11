@@ -1,0 +1,40 @@
+<!doctype HTML>
+<html>
+<head>
+	<link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="vendors/slick/slick.css" media="screen" title="no title" charset="utf-8">
+	<script src="vendors/angular.min.js"></script>
+	<script src="vendors/jquery.min.js"></script>
+	<script src="vendors/slick/slick.min.js"></script>
+	<script src="js/app.js"></script>
+</head>
+
+<body ng-app="helloApplication">
+
+	<section ng-controller="helloController">
+		<table>
+			<tr ng-repeat="el in users">
+				<td>{{el.name}}</td>
+				<td>{{el.age}}</td>
+				<td> <button name="button" ng-click="deleteUser(el)">Delete</button></td>
+			</tr>
+		</table>
+
+		<div>{{time}}</div>
+	</section>
+
+	<section ng-controller="testController">
+		<input type="text" ng-model="value" name="some_name" value="">
+		{{value}}
+		<div id="name"> </div>
+	</section>
+
+	<section ng-controller="slickController">
+		<div class="ko-slick">
+			<div ng-repeat="item in items">{{item.name}}</div>
+		</div>
+	</section>
+
+</body>
+
+</html>
